@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<style>
+strong
+{
+text-align : center ;
+color : blue;
+margin-left : 40%;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h3{
+text-align : center ;
+}
+</style>
+<body>
+<strong>The World's End.</strong>
+<h3>World's End is a northern district of Burgess Hill, West Sussex, England.<br> It is thought that the name arrived with the railway<br>  It was here that the 'up' line met the 'down' line during construction of the [[Brighton main line]farm (in what is now the Noel Rise area).</h3>
+
+<figure>
+  <img src="C:/Users/Ammar Bharmal/Desktop/sussex.jpg" alt="The Sussex " width="304" height="228">
+</figure>
+<p><strong>Note:</strong> Beware of the slippery edges.</p>
+
+</body>
+</html>
