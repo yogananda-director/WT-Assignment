@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <title>html files</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+var w;
+
+function startWorker() {
+  if(typeof(Worker) !== "undefined") {
+    if(typeof(w) == "undefined") {
+      w = new Worker("demo_workers.js");
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    };
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+  }
+}
+
+function stopWorker() { 
+  w.terminate();
+  w = undefined;
+}
+</script>
+  <style>
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>HTML4</title>
+<style>
+body {
+  font-family: Verdana,sans-serif;
+  font-size: 0.9em;
+}
+
+div#header, div#footer {
+  padding: 10px;
+  color: blue;
+  background-color: white;
+}
+
+div#content {
+  margin: 5px;
+  padding: 10px;
+  background-color: lightgrey;
+}
+
+div.article {
+  margin: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+div#menu ul {
+  padding: 0;
+}
+
+div#menu ul li {
+  display: inline;
+  margin: 5px;
+}
+mark{
+  background-color: blue;
+  color:black;
+}
+</style>
+</head>
+  <body>
+    <p>Display a gauge:</p>
+<meter value="2" min="0" max="10">2 out of 10</meter><br><br>
+<meter value="0.6">60%</meter>
+    <p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+<div id="header">
+ <caption><h2>Monday Times</h2></caption>
+</div>
+
+<div id="menu">
+  <ul>
+    <li>News</li>
+    <li>Sports</li>
+    <li>Weather</li>
+  </ul>
+</div>
+
+<div id="content">
+  <h2>News Section</h2>
+  <div class="article">
+    <h2>News Article</h2>
+      <p>Difficult words: <mark>electronics (phones, tablets, computers)</mark>, psychologist (a doctor who helps people with their mind and how they feel), rule (a rule tells you what you can or must not do), argue (say you feel differently and be emotional).
+        
+      </p>
+  </div>
+  <h4>IF you want to signup to get updates:</h4>
+
+    <form action="insert.php" method="POST">
+      <fieldset>
+      <table>
+        <tr>
+          <td>
+            name:
+          </td>
+          <td>
+            <input type="text" placeholder="name" name="username">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Password:
+          </td>
+          <td>
+            <input type="password" placeholder="password" name="password">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Gender:
+          </td>
+          <td>
+            <input type="radio" name="gender" value="m">Male
+            <input type="radio" name="gender" value="f">Female
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Email:
+          </td>
+          <td>
+            <input type="email" placeholder=" Email" name="">
+          </td>
+          <tr>
+          <td>
+            phone:
+          </td>
+          <td>
+                 <select name="phonecode">
+                  <option>568</option>
+                  <option>589</option>
+                  <option>897</option>
+                 </select>
+                 <input type="phone" placeholder="987******" name="">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit"  value="submit" name="">
+          </td>
+        </tr>
+      </tr>
+    </table>
+      </table>
+      </fieldset>
+    </form>
+  <div class="article">
+    <h2>News Article</h2>
+    <p>A British agency writes a report. It says that children are using electronics more and more. Some very young children have tablets. They use them over an hour a day. Some older children use their electronics for many hours a week.</p>
+    <p>
+A psychologist says that parents need to set rules. These rules say when and where their children can use their electronics. A mother says that her children argue with her when she asks them to get off the electronics.</p>
+  </div>
+</div>
+
+<div id="footer">
+</div>
+<p>Drag the nature image into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="nature.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+<figure>
+  <img src="nature.jpg" alt="Trulli" style="width:100%">
+  <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
+
+
+
+
+</body>
+</html>
