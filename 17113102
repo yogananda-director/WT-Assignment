@@ -1,0 +1,69 @@
+<html>
+<head>
+ <title>My site</title>
+<style>
+body{
+   font-family:arial;
+  background-image: linear-gradient(red, yellow, green);
+   background-size: cover;
+   height: 500px;
+}
+form {
+ background-color: gray;
+ border: 3px solid #f1f1f1 ;
+ border-style:dashed;
+ border-radius: 10px;
+ width: 600px;
+ position: relative;
+ left: 100px;
+ top:100px;
+ color: white;
+ 
+
+} 
+
+input[type=text], input[type=email] {
+ width: 300px;
+ padding: 5px 10px;
+ margin: 8px 0;
+ display: inline-block;
+ bordor: 1px solid #ccc;
+ box-sizing: bordor-box;
+}
+
+ button{
+  background-color: skyblue;
+  color: white;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin:8px 0;
+  position: relative;
+  left: 150px;
+  
+}
+button:hover{
+opacity: 0.8;
+}
+</style>
+
+<script>
+function goto(){
+ document.getElementById("h").action="v.html";
+}
+
+
+</script>
+</head>
+<body>
+  <form action="" method="post" id="h">
+<div class="container">
+  <h1> Fill The details To Enter </h1>
+  Name:
+   <input type="text" name="name" ><br>
+   Email:
+   <input type="email" name="email" ><br>
+   <button onclick="goto()"> submit </button>
+</div>
+  </form>
+</body>
+</html>
