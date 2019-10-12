@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HTML5 Email Input Type</title>
+<style>
+    input[type="email"]:valid{
+        outline: 2px solid green;
+    }
+    input[type="email"]:invalid{
+        outline: 2px solid red;
+    }
+</style>
+<script>
+    function getValue() {
+        var email = document.getElementById("myemail").value;
+        alert(email);
+    }
+</script>
+</head>
+<body>
+    <form>
+        <label for="myemail">Enter Email Address:</label>
+        <input type="email" id="myemail" required>
+        <button type="button" onclick="getValue();">Get Value</button>
+    </form>
+</body>
+</html>   
