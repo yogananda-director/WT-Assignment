@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+h1{
+color: red;
+font-style: san-serif;
+position: relative;
+top: 20px;
+left: 45%;
+}#div1 {
+  display: inline-block;
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+#div2 {
+display: inline-block;
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+ <h1>Match This..!</h1>
+<input type="image" image src="wp3994066-ranveer-singh-wallpapers.JPG" width="350" height="350">
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<input type="image" image src="99850.Ranbir.JPG" width="350" height="350">
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="deep.JPG" draggable="true" ondragstart="drag(event)" width="350" height="350">
+<img id="drag2" src="Alia_Bhatt_promoting_Kalank.JPG" draggable="true" ondragstart="drag(event)" width="350" height="350">
+</body>
+</html>
